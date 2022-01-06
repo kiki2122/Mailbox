@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="inbox.css" />
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <title>Document</title>
+  </head>
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script>
+    if (!localStorage.getItem('currentUser')) {
+      window.location.replace('index.html');
+    }
+    grid('outbox');
+  </script>
+  <body>
+    <div class="header">
+      <ul id="header-list">
+        <li onclick="expand()">
+          <i class="fa fa-bars" id="menu"></i>
+        </li>
+        &nbsp;&nbsp;
+        <li>
+          <input type="text" placeholder="Search for something..." id="" />
+        </li>
+      </ul>
+    </div>
+    <div class="notifications">
+      <ul>
+        <li><i class="fa fa-envelope" data-content="0"></i></li>
+        <li><i class="fa fa-bell"></i></li>
+        <a href="#" onclick="logout()"><li><i class="fa fa-sign-out"></i>&nbsp; Log out</li></a>
+      </ul>
+    </div>
+    <div class="collapsed-menu">
+      <ul>
+        <li>IN+</li>
+        <li><i class="fa fa-dashboard"></i></li>
+        <li><i class="fa fa-diamond"></i></li>
+        <li><i class="fa fa-bar-chart"></i></li>
+        <li id="menu-mail"><i class="fa fa-envelope"></i></li>
+        <li><i class="fa fa-pie-chart"></i></li>
+        <li><i class="fa fa-flask"></i></li>
+        <li><i class="fa fa-edit"></i></li>
+        <li><i class="fa fa-desktop"></i></li>
+        <li><i class="fa fa-copy"></i></li>
+        <li><i class="fa fa-globe"></i></li>
+        <li><i class="fa fa-flask"></i></li>
+        <li><i class="fa fa-laptop"></i></li>
+      </ul>
+    </div>
+    <div class="expanded-menu" id="expanded-menu">
+      <ul>
+        <li>
+          <i class="fa fa-user-circle" id="profile"></i><br />
+          <br />
+          David Williams <br />
+          Art Director
+        </li>
+        <li><i class="fa fa-dashboard"></i>&nbsp; Dashboards</li>
+        <li><i class="fa fa-diamond"></i>&nbsp; Layouts</li>
+        <li><i class="fa fa-bar-chart"></i>&nbsp; Graphs</li>
+        <li id="menu-mail">
+          <i class="fa fa-envelope"></i>&nbsp; Mailbox <br /><br />
+          &nbsp; &nbsp; &nbsp; Inbox <br /><br />
+          &nbsp; &nbsp; &nbsp; Email view <br /><br />
+          &nbsp; &nbsp; &nbsp; Compose email <br /><br />
+          &nbsp; &nbsp; &nbsp; Email templates
+        </li>
+        <li><i class="fa fa-pie-chart"></i>&nbsp; Metrics</li>
+        <li><i class="fa fa-flask"></i>&nbsp; Widgets</li>
+        <li><i class="fa fa-edit"></i>&nbsp; Forms</li>
+        <li><i class="fa fa-desktop"></i>&nbsp; App views</li>
+        <li><i class="fa fa-copy"></i></li>
+        <li><i class="fa fa-globe"></i></li>
+        <li><i class="fa fa-flask"></i></li>
+        <li><i class="fa fa-laptop"></i></li>
+      </ul>
+    </div>
+    <div class="nav">
+      <ul id="nav-list">
+        <li>
+          <button id="compose-btn" onclick="composeMail()">
+            Compose&nbsp;Mail
+          </button>
+        </li>
+        <br />
+        <li>FOLDERS</li>
+        <li class="cursor" onclick="navigate('inbox.html')"><i class="fa fa-inbox" data-content="0"></i> &nbsp;&nbsp; Inbox</li>
+        <li><i class="fa fa-envelope"></i> &nbsp; Sent Mail</li>
+        <li><i class="fa fa-certificate"></i> &nbsp;&nbsp; Important</li>
+        <li><i class="fa fa-file"></i> &nbsp;&nbsp; Drafts</li>
+        <li><i class="fa fa-trash"></i> &nbsp;&nbsp; Trash</li>
+        <br />
+        <li>CATEGORIES</li>
+        <li>
+          <i class="fa fa-circle" style="color: rgb(11, 156, 125)"></i> &nbsp;
+          Work
+        </li>
+        <li>
+          <i class="fa fa-circle" style="color: brown"></i> &nbsp; Documents
+        </li>
+        <li>
+          <i class="fa fa-circle" style="color: rgb(45, 45, 240)"></i> &nbsp;
+          Social
+        </li>
+        <li>
+          <i class="fa fa-circle" style="color: rgb(11, 156, 125)"></i> &nbsp;
+          Advertising
+        </li>
+        <li>
+          <i class="fa fa-circle" style="color: orange"></i> &nbsp; Clients
+        </li>
+        <br />
+        <li>LABELS</li>
+        <li>
+          <i class="fa fa-tag"></i> Family &nbsp; <i class="fa fa-tag"></i> Work
+          &nbsp; <i class="fa fa-tag"></i> Home
+        </li>
+        <li>
+          <i class="fa fa-tag"></i> Children &nbsp;
+          <i class="fa fa-tag"></i> Holidays &nbsp;
+          <i class="fa fa-tag"></i> Music
+        </li>
+        <li>
+          <i class="fa fa-tag"></i> Photography &nbsp;
+          <i class="fa fa-tag"></i> Film
+        </li>
+      </ul>
+    </div>
+    <div class="inbox">
+      <div class="flexbox">
+        <h3>Inbox(<span id="total">0</span>)</h3>
+        <div>
+          <input class="search-input" type="text" placeholder="Search email" /><button class="search">Search</button>
+        </div>
+      </div>
+      <div class="settings"><i class="fa fa-cogs"></i></div>
+      <ul class="icons">
+        <li class="cursor" onclick="refresh()"><i class="fa fa-refresh"></i> &nbsp;Refresh</li>
+        <li class="cursor" onclick="read()"><i class="fa fa-eye"></i></li>
+        <li>!</li>
+        <li class="cursor" onclick="remove()"><i class="fa fa-trash"></i></li>
+      </ul>
+      <ul class="pagination">
+        <li><span></span></li>
+      </ul>
+      <ul class="icons-2">
+        <li class="cursor" onclick="previous()"><i class="fa fa-arrow-left"></i></li>
+        <li class="cursor" onclick="next()"><i class="fa fa-arrow-right"></i></li>
+      </ul>
+      <div id="myGrid" style="height: 440px; margin-top: 100px;" class="ag-theme-alpine"></div>
+      <div class="compose-mail" id="compose-mail">
+        <ul>
+          <li>
+            <p>New Message</p>
+            <div onclick="closeCompose()"><i class="fa fa-times"></i></div>
+          </li>
+          <li><input type="email" id="toEmail" placeholder="To" /></li>
+          <li><input type="email" id="ccEmail" placeholder="Cc" /></li>
+          <li><input type="text" id="subject" placeholder="Subject" /></li>
+          <li><textarea cols="45" rows="10" id="message" placeholder="Message"></textarea></li>
+          <li><button onclick="sendMail()">Send</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toast-container" style="position: fixed; top: 10px; right: 10px;">
+      <div class="toast">
+        <div class="toast-body">toast message</div>
+      </div>
+    </div>
+  </body>
+</html>

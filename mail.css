@@ -1,0 +1,88 @@
+.compose-mail{
+    position: fixed;
+    background: white;
+    width: 37%;
+    top: 24%;
+    left: 59%;
+    box-shadow: 0px 0px 3px 3px rgb(41, 50, 66);
+    display: none;
+}
+
+.compose-mail ul{
+    list-style: none;
+    margin-left: -5%;
+}
+
+.compose-mail ul li{
+    color: gray;
+}
+
+.compose-mail ul li p{
+    background: rgb(41, 50, 66);
+    color: white;
+    margin-top: -5%;
+    margin-left: -3%;
+    padding: 15px;
+}
+
+.inbox .fa-user-circle{
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 40px;
+    color: gray;
+}
+
+.inbox h3{
+    margin-top: -4%;
+    margin-left: 12%;
+}
+
+.inbox .msg{
+    background: rgb(226, 223, 223);
+    height: 50%;
+    width: 80%;
+    margin-left: 10%;
+    padding: 15px;
+}
+
+.compose-mail ul li input{
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    width: 95%;
+    margin-bottom: 5px;
+}
+
+.compose-mail ul li textarea{
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.compose-mail ul li button{
+    background: rgb(25, 31, 41);
+    color: white;
+    border: none;
+    outline: none;
+    padding: 2%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.compose-mail ul li i{
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.inbox .icons-2 {
+    margin-left: 25px;
+}
+
+.inbox .icons-2 span{
+    padding: 8px;
+    border: 1px solid rgb(219, 217, 217);
+    font-size: 15px;
+    margin: 0 10px;
+}

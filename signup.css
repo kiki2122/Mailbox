@@ -1,0 +1,64 @@
+h4{
+    position: relative;
+    color: rgb(11, 156, 125);
+    text-transform: uppercase;
+    padding-top: 8%;
+    left: 45%;
+}
+
+.signup{
+    position: relative;
+    top: 30%;
+    left: 36%;
+}
+
+.signup input{
+    outline: none;
+    border: none;
+    background: rgb(189, 221, 216);
+    padding: 12px 10px;
+    width: 25%;  
+}
+
+.signup button{
+    position: relative;
+    left:   10%;
+    outline: none;
+    border: 1px solid rgb(11, 156, 125);
+    background: rgb(11, 156, 125);
+    color: white;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.signup button:hover{
+    background: white;
+    color: rgb(11, 156, 125);
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+h6{
+    position: relative;
+    text-align: center;
+    left: -1%;
+}
+
+h6 a{
+    text-decoration: none;
+    font-style: normal;
+    color: rgb(235, 63, 63);
+}
+
+h6 a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(235, 63, 63);
+}
+
+.toast-body{
+    color: rgb(245, 37, 37);
+}
