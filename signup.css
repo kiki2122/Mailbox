@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+    
 h4{
     position: relative;
     color: rgb(11, 156, 125);
